@@ -1,0 +1,13 @@
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\Odonto.Repository.dll.config
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\Odonto.Repository.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\Odonto.Repository.pdb
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\EntityFramework.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\Odonto.Domain.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\Odonto.Domain.pdb
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\EntityFramework.xml
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\obj\Debug\Odonto.Repository.csprojResolveAssemblyReference.cache
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\obj\Debug\Odonto.Repository.csproj.CoreCompileInputs.cache
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\obj\Debug\Odonto.Repository.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Repository\obj\Debug\Odonto.Repository.pdb

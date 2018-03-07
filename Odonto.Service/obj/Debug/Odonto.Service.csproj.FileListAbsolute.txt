@@ -1,0 +1,8 @@
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\bin\Debug\Odonto.Service.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\bin\Debug\Odonto.Service.pdb
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\bin\Debug\Odonto.Domain.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\bin\Debug\Odonto.Domain.pdb
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\obj\Debug\Odonto.Service.csprojResolveAssemblyReference.cache
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\obj\Debug\Odonto.Service.csproj.CoreCompileInputs.cache
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\obj\Debug\Odonto.Service.dll
+c:\users\vinicius\source\repos\Odonto\Odonto.Service\obj\Debug\Odonto.Service.pdb

@@ -5,15 +5,17 @@ using Odonto.Domain.Interfaces.Repository;
 using Odonto.Domain.Interfaces.Service;
 using Odonto.Repository.Repositories;
 using Odonto.Service;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
+using System.Web.SessionState;
+using System.Web.Http;
+using System.Reflection;
 
 namespace Odonto.Web
 {
@@ -39,7 +41,7 @@ namespace Odonto.Web
             kernel.Bind(typeof(IUnitOfWork)).To(typeof(UnitOfWork)).InSingletonScope();
 
             kernel.Bind(typeof(IEmpresaService)).To(typeof(EmpresaService)).InSingletonScope();
-            
+
             return kernel;
         }
 
@@ -49,6 +51,7 @@ namespace Odonto.Web
 
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
+
         }
     }
 }

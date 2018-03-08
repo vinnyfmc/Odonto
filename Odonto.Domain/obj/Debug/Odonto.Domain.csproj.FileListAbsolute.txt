@@ -4,3 +4,9 @@ c:\users\vinicius\source\repos\Odonto\Odonto.Domain\obj\Debug\Odonto.Domain.cspr
 c:\users\vinicius\source\repos\Odonto\Odonto.Domain\obj\Debug\Odonto.Domain.csproj.CoreCompileInputs.cache
 c:\users\vinicius\source\repos\Odonto\Odonto.Domain\obj\Debug\Odonto.Domain.dll
 c:\users\vinicius\source\repos\Odonto\Odonto.Domain\obj\Debug\Odonto.Domain.pdb
+C:\Users\Vinicius\source\repos\OdontoDDD\Odonto.Domain\bin\Debug\Odonto.Domain.dll
+C:\Users\Vinicius\source\repos\OdontoDDD\Odonto.Domain\bin\Debug\Odonto.Domain.pdb
+C:\Users\Vinicius\source\repos\OdontoDDD\Odonto.Domain\obj\Debug\Odonto.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Vinicius\source\repos\OdontoDDD\Odonto.Domain\obj\Debug\Odonto.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Vinicius\source\repos\OdontoDDD\Odonto.Domain\obj\Debug\Odonto.Domain.dll
+C:\Users\Vinicius\source\repos\OdontoDDD\Odonto.Domain\obj\Debug\Odonto.Domain.pdb

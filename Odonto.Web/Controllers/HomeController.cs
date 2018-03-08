@@ -10,30 +10,31 @@ namespace Odonto.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IEmpresaService empresaService;
-        public HomeController(IEmpresaService empresaService)
+        IEmpresaService empresaService = null;
+        public HomeController(IEmpresaService _empresaService)
         {
-            this.empresaService = empresaService;
+            this.empresaService = _empresaService;
         }
+
+        // GET: Home
         public ActionResult Index()
         {
-            //List<Empresa> empresas = empresaService.GetAll().ToList();
-            //ViewBag.Title = empresas.FirstOrDefault().RazaoSocial;
             return View();
         }
 
-        public ActionResult About()
+        public JsonResult GetEmpresas()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            try
+            {
+                List<Empresa> empresas = new List<Empresa>();
+                empresas = empresaService.GetAll().ToList();
+                return Json(empresas, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

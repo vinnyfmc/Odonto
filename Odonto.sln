@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odonto.Domain", "Odonto.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odonto.Service", "Odonto.Service\Odonto.Service.csproj", "{3FCED673-91D5-43BE-9230-7BEB9BDFC95A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Odonto.Web", "Odonto.Web\Odonto.Web.csproj", "{D0722BAE-1161-40BA-BDE2-0F379D7A1B83}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{3FCED673-91D5-43BE-9230-7BEB9BDFC95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FCED673-91D5-43BE-9230-7BEB9BDFC95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FCED673-91D5-43BE-9230-7BEB9BDFC95A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0722BAE-1161-40BA-BDE2-0F379D7A1B83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0722BAE-1161-40BA-BDE2-0F379D7A1B83}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0722BAE-1161-40BA-BDE2-0F379D7A1B83}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0722BAE-1161-40BA-BDE2-0F379D7A1B83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

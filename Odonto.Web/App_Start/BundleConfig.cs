@@ -40,6 +40,12 @@ namespace Odonto.Web
             bundles.Add(new StyleBundle("~/swal/css").Include(
                 "~/Content/sweetalert/sweetalert.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/DataTablejs").Include(
+               "~/Content/datatable/js/datatables.min.js"));
+
+            bundles.Add(new StyleBundle("~/DataTablejs/css").Include(
+                "~/Content/datatable/css/datatables.min.css"));
+
             bundles.Add(new StyleBundle("~/Morrisjs/css").Include(
                 "~/Content/vendor/morrisjs/morris.css"));
 

@@ -335,10 +335,11 @@
     </div>
     <!-- /#wrapper -->
 
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/swal")
+        @RenderSection("Scripts", required: false)
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/swal")
-    @RenderSection("scripts", required: false)
+
 </body>
 </html>

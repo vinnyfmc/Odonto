@@ -3,30 +3,18 @@
     ViewBag.Title = "Index";
 }
 
+@Styles.Render("~/DataTablejs/css")
+
 <h2>Funcionários</h2>
 
 <div ng-app="FuncionarioLista" ng-controller="FuncionarioController">
     <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="f in funcionarios">
-                    <td>
-                        {{f.Id}}
-                    </td>
-                    <td>
-                        {{f.RazaoSocial}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <table datatable [dtOptions]="dtOptions" class="table table-striped" id="tblFuncionarios"></table>
     </div>
 </div>
 
-@Scripts.Render("~/bundles/angular")
-@Scripts.Render("~/bundles/FuncionarioLista")
+@section Scripts{
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/FuncionarioLista")
+    @Scripts.Render("~/bundles/DataTablejs")
+}

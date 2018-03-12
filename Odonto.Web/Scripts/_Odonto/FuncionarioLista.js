@@ -1,19 +1,31 @@
 ﻿(function () {
-    //Cria um Module 
-    // será usado ['ng-Route'] quando implementarmos o roteamento
     var app = angular.module('FuncionarioLista', ['ngRoute']);
-    //Cria um Controller
-    // aqui $scope é usado para compartilhar dados entre a view e o controller
+
     app.controller('FuncionarioController', function ($http, $scope) {
-       
+        
         $http({
             url: "/Funcionario/GetAll",
-            method: "GET",
-            params: { number: 4, name: "angular" }
+            method: "GET"
         }).then(function successCallback(response) {
             var dados = response.data;
             if (dados.sucesso) {
-                $scope.funcionarios = dados.retorno;
+                $('#tblFuncionarios').DataTable({
+                    data: dados.retorno,
+                    columns: [{
+                        title: 'ID',
+                        data: 'Id'
+                    }, {
+                        title: 'Razão Social',
+                        data: 'RazaoSocial'
+                    }, {
+                        title: 'CNPJ',
+                        data: 'CNPJ'
+                    }],
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+                    }
+                    
+                });
             } else {
                 swal({
                     type: 'error',

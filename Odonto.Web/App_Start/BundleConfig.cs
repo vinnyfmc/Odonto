@@ -11,6 +11,10 @@ namespace Odonto.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.js",
+                "~/Scripts/angular-route.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
 
@@ -36,6 +40,9 @@ namespace Odonto.Web
             bundles.Add(new ScriptBundle("~/bundles/Morrisjs").Include(
                 "~/Content/vendor/raphael/raphael.min.js",
                 "~/Content/vendor/morrisjs/morris.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/FuncionarioLista").Include(
+                "~/Scripts/_Odonto/FuncionarioLista.js"));
         }
     }
 }

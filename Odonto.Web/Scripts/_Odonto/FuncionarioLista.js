@@ -5,8 +5,7 @@
     //Cria um Controller
     // aqui $scope é usado para compartilhar dados entre a view e o controller
     app.controller('FuncionarioController', function ($http, $scope) {
-        $scope.Mensagem = "Olá.  Esse é nosso primeiro contato com o AgularJS no ASP .NEt MVC.";
-
+       
         $http({
             url: "/Funcionario/GetAll",
             method: "GET",
@@ -16,10 +15,18 @@
             if (dados.sucesso) {
                 $scope.funcionarios = dados.retorno;
             } else {
-                alert(dados.retorno);
+                swal({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: dados.retorno
+                })
             }
             }, function errorCallback(response) {
-                console.log(response.data);
+                swal({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Algo deu errado, desculpe =('
+                })
         });
         
     });

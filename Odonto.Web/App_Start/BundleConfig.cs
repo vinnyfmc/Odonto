@@ -34,6 +34,12 @@ namespace Odonto.Web
                 "~/Content/dist/css/sb-admin-2.min.css",
                 "~/Content/vendor/font-awesome/css/font-awesome.min.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/swal").Include(
+                "~/Content/sweetalert/sweetalert.min.js"));
+
+            bundles.Add(new StyleBundle("~/swal/css").Include(
+                "~/Content/sweetalert/sweetalert.css"));
+
             bundles.Add(new StyleBundle("~/Morrisjs/css").Include(
                 "~/Content/vendor/morrisjs/morris.css"));
 

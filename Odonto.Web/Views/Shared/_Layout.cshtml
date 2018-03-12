@@ -10,7 +10,7 @@
     <title>@ViewBag.Title</title>
 
     @Styles.Render("~/Content/css")
- 
+    @Styles.Render("~/swal/css")
 </head>
 <body>
 
@@ -338,7 +338,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    
+    @Scripts.Render("~/bundles/swal")
     @RenderSection("scripts", required: false)
 </body>
 </html>

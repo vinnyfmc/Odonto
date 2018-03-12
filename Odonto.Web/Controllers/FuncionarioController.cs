@@ -39,7 +39,7 @@ namespace Odonto.Web.Controllers
                 return Json(new
                 {
                     sucesso = false,
-                    retorno = "Falha ao listar os Funcionários!"
+                    retorno = ex.Message
                 }, JsonRequestBehavior.AllowGet);
             }
            

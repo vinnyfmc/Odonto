@@ -200,6 +200,9 @@
     <Content Include="Content\pages\panels-wells.html" />
     <Content Include="Content\pages\tables.html" />
     <Content Include="Content\pages\typography.html" />
+    <Content Include="Content\sweetalert\sweetalert.css" />
+    <Content Include="Content\sweetalert\sweetalert.js" />
+    <Content Include="Content\sweetalert\sweetalert.min.js" />
     <Content Include="Content\vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />

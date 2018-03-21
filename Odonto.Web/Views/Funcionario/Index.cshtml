@@ -7,9 +7,24 @@
 
 <h2>Funcionários</h2>
 
-<div ng-app="FuncionarioLista" ng-controller="FuncionarioController">
+<div ng-app="FuncionarioLista" ng-controller="FuncionarioAPIController">
     <div class="row">
-        <table datatable [dtOptions]="dtOptions" class="table table-striped" id="tblFuncionarios"></table>
+        <table class="table table-striped" id="tblFuncionarios">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Razão Social</th>
+                    <th>CNPJ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="funcionario in funcionarioList">
+                    <td>{{funcionario.Id}}</td>
+                    <td>{{funcionario.RazaoSocial}}</td>
+                    <td>{{funcionario.CNPJ}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 

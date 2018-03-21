@@ -22,6 +22,8 @@ namespace Odonto.Web
             kernel.Bind(typeof(IEmpresaService)).To(typeof(EmpresaService)).InSingletonScope();
             kernel.Bind(typeof(IFuncionarioService)).To(typeof(FuncionarioService)).InSingletonScope();
 
+            System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Ninject.WebApi.DependencyResolver.NinjectDependencyResolver(kernel);
+
             //Registra o container no ASP.NET
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }

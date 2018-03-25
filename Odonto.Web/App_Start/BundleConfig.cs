@@ -10,11 +10,7 @@ namespace Odonto.Web
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/angular.js",
-                "~/Scripts/angular-route.js"));
-
+            
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
 
@@ -35,16 +31,13 @@ namespace Odonto.Web
                 "~/Content/vendor/font-awesome/css/font-awesome.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/swal").Include(
-                "~/Content/sweetalert/sweetalert.min.js"));
+                "~/Content/sweetalert/sweetalert2.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/dataTable").Include(
+                "~/Content/datatable/datatables.min.js"));
 
-            bundles.Add(new StyleBundle("~/swal/css").Include(
-                "~/Content/sweetalert/sweetalert.css"));
-
-            bundles.Add(new ScriptBundle("~/bundles/DataTablejs").Include(
-               "~/Content/datatable/js/datatables.min.js"));
-
-            bundles.Add(new StyleBundle("~/DataTablejs/css").Include(
-                "~/Content/datatable/css/datatables.min.css"));
+            bundles.Add(new StyleBundle("~/dataTable/css").Include(
+                "~/Content/datatable/DataTables-1.10.16/css/dataTables.bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Morrisjs/css").Include(
                 "~/Content/vendor/morrisjs/morris.css"));
@@ -55,6 +48,9 @@ namespace Odonto.Web
 
             bundles.Add(new ScriptBundle("~/bundles/FuncionarioLista").Include(
                 "~/Scripts/_Odonto/FuncionarioLista.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/FuncionarioDetalhe").Include(
+                "~/Scripts/_Odonto/FuncionarioDetalhe.js"));
         }
     }
 }

@@ -172,7 +172,6 @@
     <Compile Include="App_Start\NinjectConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="ControllersAPI\FuncionarioAPIController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -191,15 +190,34 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\datatable\css\datatables.css" />
-    <Content Include="Content\datatable\css\datatables.min.css" />
-    <Content Include="Content\datatable\images\sort_asc.png" />
-    <Content Include="Content\datatable\images\sort_asc_disabled.png" />
-    <Content Include="Content\datatable\images\sort_both.png" />
-    <Content Include="Content\datatable\images\sort_desc.png" />
-    <Content Include="Content\datatable\images\sort_desc_disabled.png" />
-    <Content Include="Content\datatable\js\datatables.js" />
-    <Content Include="Content\datatable\js\datatables.min.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.bootstrap.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.foundation.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.foundation.min.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.jqueryui.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.semanticui.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\jquery.dataTables.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\css\jquery.dataTables.min.css" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.bootstrap.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.bootstrap.min.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.bootstrap4.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.foundation.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.foundation.min.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.jqueryui.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.jqueryui.min.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.semanticui.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\dataTables.semanticui.min.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\jquery.dataTables.js" />
+    <Content Include="Content\datatable\DataTables-1.10.16\js\jquery.dataTables.min.js" />
+    <Content Include="Content\datatable\datatables.css" />
+    <Content Include="Content\datatable\datatables.js" />
+    <Content Include="Content\datatable\datatables.min.css" />
+    <Content Include="Content\datatable\datatables.min.js" />
     <Content Include="Content\data\flot-data.js" />
     <Content Include="Content\data\morris-data.js" />
     <Content Include="Content\dist\css\sb-admin-2.css" />
@@ -220,9 +238,39 @@
     <Content Include="Content\pages\panels-wells.html" />
     <Content Include="Content\pages\tables.html" />
     <Content Include="Content\pages\typography.html" />
-    <Content Include="Content\sweetalert\sweetalert.css" />
-    <Content Include="Content\sweetalert\sweetalert.js" />
-    <Content Include="Content\sweetalert\sweetalert.min.js" />
+    <Content Include="Content\sweetalert\globalState.js" />
+    <Content Include="Content\sweetalert\instanceMethods.js" />
+    <Content Include="Content\sweetalert\instanceMethods\enable-disable-elements.js" />
+    <Content Include="Content\sweetalert\instanceMethods\getInput.js" />
+    <Content Include="Content\sweetalert\instanceMethods\hideLoading.js" />
+    <Content Include="Content\sweetalert\instanceMethods\progress-steps.js" />
+    <Content Include="Content\sweetalert\instanceMethods\show-set-validation-error.js" />
+    <Content Include="Content\sweetalert\staticMethods.js" />
+    <Content Include="Content\sweetalert\staticMethods\adaptInputValidator.js" />
+    <Content Include="Content\sweetalert\staticMethods\argsToParams.js" />
+    <Content Include="Content\sweetalert\staticMethods\close.js" />
+    <Content Include="Content\sweetalert\staticMethods\dom.js" />
+    <Content Include="Content\sweetalert\staticMethods\mixin.js" />
+    <Content Include="Content\sweetalert\staticMethods\queue.js" />
+    <Content Include="Content\sweetalert\staticMethods\set-reset-defaults.js" />
+    <Content Include="Content\sweetalert\staticMethods\showLoading.js" />
+    <Content Include="Content\sweetalert\sweetalert2.js" />
+    <Content Include="Content\sweetalert\utils\classes.js" />
+    <Content Include="Content\sweetalert\utils\defaultInputValidators.js" />
+    <Content Include="Content\sweetalert\utils\DismissReason.js" />
+    <Content Include="Content\sweetalert\utils\dom\animationEndEvent.js" />
+    <Content Include="Content\sweetalert\utils\dom\domUtils.js" />
+    <Content Include="Content\sweetalert\utils\dom\getters.js" />
+    <Content Include="Content\sweetalert\utils\dom\index.js" />
+    <Content Include="Content\sweetalert\utils\dom\init.js" />
+    <Content Include="Content\sweetalert\utils\dom\measureScrollbar.js" />
+    <Content Include="Content\sweetalert\utils\dom\parseHtmlToContainer.js" />
+    <Content Include="Content\sweetalert\utils\iosFix.js" />
+    <Content Include="Content\sweetalert\utils\isNodeEnv.js" />
+    <Content Include="Content\sweetalert\utils\params.js" />
+    <Content Include="Content\sweetalert\utils\scrollbarFix.js" />
+    <Content Include="Content\sweetalert\utils\setParameters.js" />
+    <Content Include="Content\sweetalert\utils\utils.js" />
     <Content Include="Content\vendor\bootstrap-social\bootstrap-social.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
@@ -429,7 +477,11 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Content\datatable\lang\lang-ptbr.json" />
+    <Content Include="Content\sweetalert\animations.scss" />
+    <Content Include="Content\sweetalert\mixins.scss" />
+    <Content Include="Content\sweetalert\sweetalert2.scss" />
+    <Content Include="Content\sweetalert\toasts.scss" />
+    <Content Include="Content\sweetalert\variables.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -1191,6 +1243,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\_Odonto\FuncionarioDetalhe.js" />
     <Content Include="Scripts\_Odonto\FuncionarioLista.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1220,12 +1273,12 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Funcionario\View.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
+    <Content Include="Views\Funcionario\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Empresa\" />
-    <Folder Include="Views\Funcionarios\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1240,10 +1293,6 @@
     <ProjectReference Include="..\Odonto.Repository\Odonto.Repository.csproj">
       <Project>{ac2092f1-138e-4540-817b-9bb96729769b}</Project>
       <Name>Odonto.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Odonto.Service\Odonto.Service.csproj">
-      <Project>{3fced673-91d5-43be-9230-7beb9bdfc95a}</Project>
-      <Name>Odonto.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

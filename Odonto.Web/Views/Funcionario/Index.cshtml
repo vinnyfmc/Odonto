@@ -3,33 +3,25 @@
     ViewBag.Title = "Index";
 }
 
-@Styles.Render("~/DataTablejs/css")
+@Styles.Render("~/dataTable/css")
 
-<h2>Funcionários</h2>
-
-<div ng-app="FuncionarioLista" ng-controller="FuncionarioAPIController">
+<div>
+    <h2>Funcionários</h2> <button class="btn btn-primary fa fa-plus pull-right"> Adicionar</button>
     <div class="row">
         <table class="table table-striped" id="tblFuncionarios">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Razão Social</th>
-                    <th>CNPJ</th>
+                    <th></th>
+                    <th>Nome</th>
+                    <th>CPF</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr ng-repeat="funcionario in funcionarioList">
-                    <td>{{funcionario.Id}}</td>
-                    <td>{{funcionario.RazaoSocial}}</td>
-                    <td>{{funcionario.CNPJ}}</td>
-                </tr>
-            </tbody>
+
         </table>
     </div>
 </div>
 
 @section Scripts{
-    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/dataTable")
     @Scripts.Render("~/bundles/FuncionarioLista")
-    @Scripts.Render("~/bundles/DataTablejs")
 }

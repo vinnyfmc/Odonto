@@ -1,9 +1,8 @@
 ﻿using Ninject;
 using Ninject.Syntax;
+using Ninject.Web.Common;
 using Odonto.Domain.Interfaces.Repository;
-using Odonto.Domain.Interfaces.Service;
 using Odonto.Repository.Repositories;
-using Odonto.Service;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -17,11 +16,8 @@ namespace Odonto.Web
             //Cria o Container 
             IKernel kernel = new StandardKernel();
 
-            kernel.Bind(typeof(IUnitOfWork)).To(typeof(UnitOfWork)).InSingletonScope();
-
-            kernel.Bind(typeof(IEmpresaService)).To(typeof(EmpresaService)).InSingletonScope();
-            kernel.Bind(typeof(IFuncionarioService)).To(typeof(FuncionarioService)).InSingletonScope();
-
+            kernel.Bind(typeof(IUnitOfWork)).To(typeof(UnitOfWork)).InRequestScope();
+            
             System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Ninject.WebApi.DependencyResolver.NinjectDependencyResolver(kernel);
 
             //Registra o container no ASP.NET

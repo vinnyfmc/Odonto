@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Lista";
+}
+@model Odonto.Mvc.Models.EmpresaViewModel
+@Styles.Render("~/dataTable/css")
+
+<h2>Lista</h2>
+
+<hr />
+
+@using (Html.BeginForm("Index", "Empresa", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id, new { Id = "hdfId" })
+    
+    <div class="row" id="divEmpresaLista">
+        <table class="table table-striped dataTable">
+            <thead>
+                <tr>
+                    <th><a class="btn btn-primary fa fa-plus" href="@Url.Action("Index", "Empresa", new { id = 0 })"> Adicionar</a></th>
+                    <th>Razão Social</th>
+                    <th>CNPJ</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/dataTable")
+    @Scripts.Render("~/bundles/EmpresaLista")
+}

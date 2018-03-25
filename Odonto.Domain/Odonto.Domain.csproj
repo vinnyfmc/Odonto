@@ -44,8 +44,6 @@
     <Compile Include="Entities\Funcionario.cs" />
     <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repository\IUnitOfWork.cs" />
-    <Compile Include="Interfaces\Service\IEmpresaService.cs" />
-    <Compile Include="Interfaces\Service\IFuncionarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

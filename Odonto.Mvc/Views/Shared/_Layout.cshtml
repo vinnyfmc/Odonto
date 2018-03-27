@@ -7,7 +7,8 @@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
 </head>
 <body>
     <div id="wrapper">
@@ -254,7 +255,7 @@
                             </li>*@
                         <li>
 
-                            <a href="@Url.Action("Index", "Funcionario" )">
+                            <a href="@Url.Action("Lista", "Funcionario" )">
                                 <i class="fa fa-users"></i> Funcionários
                             </a>
 
@@ -330,8 +331,7 @@
     </div>
     <!-- /#wrapper -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
+    
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/sweetAlert")
     @RenderSection("scripts", required: false)

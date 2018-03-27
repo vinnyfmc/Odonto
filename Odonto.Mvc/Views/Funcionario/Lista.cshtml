@@ -1,6 +1,6 @@
-﻿@model Odonto.Mvc.Models.EmpresaViewModel
+﻿@model Odonto.Mvc.Models.FuncionarioViewModel
 @{
-    ViewBag.Title = "Lista de Empresas";
+    ViewBag.Title = "Lista de Funcionários";
 }
 
 @Styles.Render("~/dataTable/css")
@@ -9,7 +9,7 @@
 
 <hr />
 
-@using (Html.BeginForm("Index", "Empresa", FormMethod.Post))
+@using (Html.BeginForm("Index", "Funcionario", FormMethod.Post))
 {
     @Html.HiddenFor(m => m.Id, new { Id = "hdfId" })
 
@@ -18,8 +18,8 @@
             <thead>
                 <tr>
                     <th><button class="btn btn-primary fa fa-plus" type="submit" value=""> Adicionar</button></th>
-                    <th>Razão Social</th>
-                    <th>CNPJ</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
                 </tr>
             </thead>
 
@@ -29,5 +29,5 @@
 
 @section Scripts{
     @Scripts.Render("~/bundles/dataTable")
-    @Scripts.Render("~/bundles/EmpresaLista")
+    @Scripts.Render("~/bundles/FuncionarioLista")
 }

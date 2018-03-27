@@ -17,7 +17,7 @@ namespace Odonto.Mvc
             IKernel kernel = new StandardKernel();
 
             kernel.Bind(typeof(IUnitOfWork)).To(typeof(UnitOfWork)).InRequestScope();
-            
+            kernel.Unbind<ModelValidatorProvider>();
             //Registra o container no ASP.NET
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }

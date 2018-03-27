@@ -1,0 +1,55 @@
+﻿@model Odonto.Mvc.Models.FuncionarioViewModel
+@{
+    ViewBag.Title = "Cadastro de Funcionário";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+
+@using (Ajax.BeginForm("Salvar", "Funcionario", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSubmitSuccess", OnBegin = "OnSubmitBegin" }, new { @id="frmSalvar" }))
+{
+    @Html.HiddenFor(m => m.Id, new { Id = "hdfFuncionarioId" })
+    @Html.HiddenFor(m => m.IdEmpresa, new { Id = "hdfEmpresaId" })
+
+    <div class="row">
+        <div class="col-lg-6 form-group">
+            @Html.Label("*Nome")
+            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = "Digite o nome completo." })
+        </div>
+        <div class="col-lg-3">
+            @Html.Label("*CPF")
+            @Html.TextBoxFor(m => m.CPF, new { @type = "number", @class = "form-control", placeholder = "Sem pontuação." })
+        </div>
+        <div class="col-lg-3">
+            @Html.CheckBoxFor(m => m.ResponsavelTecnico, new { id = "chkResponsavel" })
+            <label for="chkResponsavel">CRO é responsável técnico?</label>
+            @Html.TextBoxFor(m => m.CRO, new { @class = "form-control", placeholder = "CRO se houver." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 form-group">
+            @Html.Label("*Email")
+            @Html.TextBoxFor(m => m.Email, new { @type = "email", @class = "form-control", placeholder = "Digite o e-mail." })
+        </div>
+
+        <div class="col-lg-3">
+            @Html.Label("Status")
+            @Html.DropDownListFor(m => m.Status,
+                EnumHelper.GetSelectList(typeof(Odonto.Mvc.Models.Enums.Enums.Ativo)),
+                    "Selecione...",
+                    new { @class = "form-control" })
+        </div>
+
+        <div class="col-lg-2 col-lg-offset-1">
+            <button id="btnSalvar" class=" form-control btn-lg btn-primary fa fa-save" style="margin-top:25px"> Salvar</button>
+        </div>
+    </div>
+
+
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/FuncionarioIndex")
+}

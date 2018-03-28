@@ -90,8 +90,14 @@ namespace Odonto.Mvc.Controllers
                     if (funcionario.Id > 0)
                     {
                         Funcionario funcionarioOriginal = ctx.FuncionarioRepository.GetById(funcionario.Id);
-                        funcionario.Senha = funcionarioOriginal.Senha;
-                        ctx.FuncionarioRepository.Update(funcionario);
+                        funcionarioOriginal.CPF = funcionario.CPF;
+                        funcionarioOriginal.CRO = funcionario.CRO;
+                        funcionarioOriginal.Email = funcionario.Email;
+                        funcionarioOriginal.Nome = funcionario.Nome;
+                        funcionarioOriginal.ResponsavelTecnico = funcionario.ResponsavelTecnico;
+                        funcionarioOriginal.Status = funcionario.Status;
+                        
+                        ctx.FuncionarioRepository.Update(funcionarioOriginal);
                     }
                     else
                     {

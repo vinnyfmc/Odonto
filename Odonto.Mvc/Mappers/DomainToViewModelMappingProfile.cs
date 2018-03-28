@@ -10,6 +10,7 @@ namespace Odonto.Mvc.Mappers
         {
             CreateMap<Empresa, EmpresaViewModel>();
             CreateMap<Funcionario, FuncionarioViewModel>();
+            CreateMap<Paciente, PacienteViewModel>();
         }
     }
 }

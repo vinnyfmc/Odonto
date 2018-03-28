@@ -57,6 +57,14 @@ namespace Odonto.Mvc
             bundles.Add(new ScriptBundle("~/bundles/FuncionarioIndex").Include(
                         "~/Scripts/_Odonto/Funcionario/Index.js"));
             #endregion
+
+            #region "Bundles Paciente"
+            bundles.Add(new ScriptBundle("~/bundles/PacienteLista").Include(
+                        "~/Scripts/_Odonto/Paciente/Lista.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/PacienteIndex").Include(
+                        "~/Scripts/_Odonto/Paciente/Index.js"));
+            #endregion
         }
     }
 }

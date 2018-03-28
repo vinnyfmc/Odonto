@@ -15,6 +15,7 @@ namespace Odonto.Repository.Context
 
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
+        public DbSet<Paciente> Paciente { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -28,6 +29,7 @@ namespace Odonto.Repository.Context
 
             modelBuilder.Configurations.Add(new EmpresaConfig());
             modelBuilder.Configurations.Add(new FuncionarioConfig());
+            modelBuilder.Configurations.Add(new PacienteConfig());
         }
     }
 }

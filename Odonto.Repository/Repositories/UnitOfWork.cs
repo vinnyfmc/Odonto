@@ -11,7 +11,8 @@ namespace Odonto.Repository.Repositories
         private OdontoContext context = new OdontoContext();
         private RepositoryBase<Empresa> empresaRepository;
         private RepositoryBase<Funcionario> funcionarioRepository;
-        
+        private RepositoryBase<Paciente> pacienteRepository;
+
         public IRepositoryBase<Empresa> EmpresaRepository
         {
             get
@@ -35,7 +36,20 @@ namespace Odonto.Repository.Repositories
                 return funcionarioRepository;
             }
         }
-        
+
+        public IRepositoryBase<Paciente> PacienteRepository
+        {
+            get
+            {
+                if (pacienteRepository == null)
+                {
+                    pacienteRepository = new RepositoryBase<Paciente>(context);
+                }
+                return pacienteRepository;
+            }
+        }
+
+
         public int Commit()
         {
             return context.SaveChanges();

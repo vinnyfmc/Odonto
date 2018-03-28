@@ -1,0 +1,36 @@
+﻿@model Odonto.Mvc.Models.PacienteViewModel
+@{
+    ViewBag.Title = "Lista de Pacientes";
+}
+
+@Styles.Render("~/dataTable/css")
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+
+@using (Html.BeginForm("Index", "Paciente", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id, new { Id = "hdfId" })
+
+    <div class="row">
+        <table class="table table-striped dataTable">
+            <thead>
+                <tr>
+                    <th><button class="btn btn-primary fa fa-plus" type="submit" value=""> Adicionar</button></th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/dataTable")
+    @Scripts.Render("~/bundles/PacienteLista")
+}

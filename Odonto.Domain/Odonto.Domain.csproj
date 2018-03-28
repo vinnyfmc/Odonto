@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Entities\Empresa.cs" />
     <Compile Include="Entities\Funcionario.cs" />
+    <Compile Include="Entities\Paciente.cs" />
     <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repository\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

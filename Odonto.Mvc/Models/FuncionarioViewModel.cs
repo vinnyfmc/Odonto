@@ -18,6 +18,7 @@ namespace Odonto.Mvc.Models
 
         [Required(ErrorMessage = "E-mail é obrigatório.")]
         [MaxLength(255, ErrorMessage = "Máximo de 100 caratéres!")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail em formato inválido.")]
         public string Email { get; set; }
 
         [MaxLength(8, ErrorMessage = "Máximo de 8 caratéres!")]

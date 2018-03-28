@@ -3,6 +3,7 @@ using Odonto.Domain.Entities;
 using Odonto.Domain.Interfaces.Repository;
 using Odonto.Mvc.Mappers;
 using Odonto.Mvc.Models;
+using Odonto.Repository.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,11 @@ namespace Odonto.Mvc.Controllers
 {
     public class FuncionarioController : Controller
     {
-        IUnitOfWork ctx;
+        private UnitOfWork unit = new UnitOfWork();
         private readonly IMapper mapper;
 
-        public FuncionarioController(IUnitOfWork ctx)
+        public FuncionarioController()
         {
-            this.ctx = ctx;
             mapper = AutoMapperConfig.Mapper;
         }
 
@@ -31,7 +31,7 @@ namespace Odonto.Mvc.Controllers
             {
                 if (model.Id > 0)
                 {
-                    Funcionario funcionario = ctx.FuncionarioRepository.GetById((long)model.Id);
+                    Funcionario funcionario = unit.FuncionarioRepository.GetById((long)model.Id);
                     model = mapper.Map<FuncionarioViewModel>(funcionario);
                 }
                 else
@@ -58,7 +58,7 @@ namespace Odonto.Mvc.Controllers
             IEnumerable<FuncionarioViewModel> funcionariosViewModel;
             try
             {
-                IEnumerable<Funcionario> funcionarios = ctx.FuncionarioRepository.GetAll();
+                IEnumerable<Funcionario> funcionarios = unit.FuncionarioRepository.GetAll();
 
                 funcionariosViewModel = mapper.Map<IEnumerable<FuncionarioViewModel>>(funcionarios);
 
@@ -89,15 +89,14 @@ namespace Odonto.Mvc.Controllers
 
                     if (funcionario.Id > 0)
                     {
-                        Funcionario funcionarioOriginal = ctx.FuncionarioRepository.GetById(funcionario.Id);
-                        funcionarioOriginal.CPF = funcionario.CPF;
-                        funcionarioOriginal.CRO = funcionario.CRO;
-                        funcionarioOriginal.Email = funcionario.Email;
+                        Funcionario funcionarioOriginal = unit.FuncionarioRepository.GetById(funcionario.Id);
                         funcionarioOriginal.Nome = funcionario.Nome;
                         funcionarioOriginal.ResponsavelTecnico = funcionario.ResponsavelTecnico;
                         funcionarioOriginal.Status = funcionario.Status;
-                        
-                        ctx.FuncionarioRepository.Update(funcionarioOriginal);
+                        funcionarioOriginal.CPF = funcionario.CPF;
+                        funcionarioOriginal.CRO = funcionario.CRO;
+                        funcionarioOriginal.Email = funcionario.Email;
+                        unit.FuncionarioRepository.Update(funcionarioOriginal);
                     }
                     else
                     {
@@ -107,11 +106,11 @@ namespace Odonto.Mvc.Controllers
                             var hash = BitConverter.ToString(varhashedBytes).Replace("-", "").ToLower();
                             funcionario.Senha = hash;
                         }
-                        Funcionario funcionarioOriginal = ctx.FuncionarioRepository.GetById(funcionario.Id);
-                        ctx.FuncionarioRepository.Add(funcionario);
+                        Funcionario funcionarioOriginal = unit.FuncionarioRepository.GetById(funcionario.Id);
+                        unit.FuncionarioRepository.Add(funcionario);
                     }
 
-                    ctx.Commit();
+                    unit.Commit();
 
                     return new JsonResult()
                     {
@@ -141,7 +140,7 @@ namespace Odonto.Mvc.Controllers
             }
             catch (Exception ex)
             {
-                ctx.Dispose();
+                unit.Dispose();
                 return new JsonResult()
                 {
                     Data = new { sucesso = false, mensagem = ex.Message },

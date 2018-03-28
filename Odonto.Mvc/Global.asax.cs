@@ -17,7 +17,7 @@ namespace Odonto.Mvc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            NinjectConfig.ConfigurarDependencias();
+            //NinjectConfig.ConfigurarDependencias();
             AutoMapperConfig.RegisterMappings();
         }
     }

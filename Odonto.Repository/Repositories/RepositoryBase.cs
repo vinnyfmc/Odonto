@@ -8,13 +8,15 @@ using System.Linq.Expressions;
 
 namespace Odonto.Repository.Repositories
 {
-    public class RepositoryBase<T> : OdontoContext, IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
+        internal OdontoContext context;
         internal DbSet<T> dbSet;
 
-        public RepositoryBase(DbSet<T> dbSet)
+        public RepositoryBase(OdontoContext context)
         {
-            this.dbSet = dbSet;
+            this.context = context;
+            this.dbSet = context.Set<T>();
         }
 
         public virtual IQueryable<T> AsQueryable()
@@ -66,6 +68,10 @@ namespace Odonto.Repository.Repositories
 
         public virtual void Remove(T obj)
         {
+            if (context.Entry(obj).State == EntityState.Detached)
+            {
+                dbSet.Attach(obj);
+            }
             dbSet.Remove(obj);
         }
 
@@ -77,7 +83,8 @@ namespace Odonto.Repository.Repositories
 
         public virtual void Update(T obj)
         {
-            this.Entry<T>(obj).State = EntityState.Modified;
+            dbSet.Attach(obj);
+            context.Entry(obj).State = EntityState.Modified;
         }
     }
 }

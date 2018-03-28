@@ -9,6 +9,7 @@ namespace Odonto.Mvc.Mappers
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<EmpresaViewModel, Empresa>();
+            CreateMap<FuncionarioViewModel, Funcionario>();
         }
     }
 }

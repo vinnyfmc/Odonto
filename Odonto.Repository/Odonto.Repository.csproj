@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Odonto.Domain\Odonto.Domain.csproj">
-      <Project>{9dba05b4-8303-4abb-b20a-db7b2fded91b}</Project>
+      <Project>{9DBA05B4-8303-4ABB-B20A-DB7B2FDED91B}</Project>
       <Name>Odonto.Domain</Name>
     </ProjectReference>
   </ItemGroup>

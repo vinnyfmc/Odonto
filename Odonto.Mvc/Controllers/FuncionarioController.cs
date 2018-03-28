@@ -6,6 +6,7 @@ using Odonto.Mvc.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -26,7 +27,24 @@ namespace Odonto.Mvc.Controllers
         // GET: Funcionario
         public ActionResult Index(FuncionarioViewModel model)
         {
-            return View();
+            try
+            {
+                if (model.Id > 0)
+                {
+                    Funcionario funcionario = ctx.FuncionarioRepository.GetById((long)model.Id);
+                    model = mapper.Map<FuncionarioViewModel>(funcionario);
+                }
+                else
+                {
+                    model.IdEmpresa = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return View(model);
         }
 
         public ActionResult Lista()
@@ -63,16 +81,38 @@ namespace Odonto.Mvc.Controllers
         [HttpPost]
         public JsonResult Salvar(FuncionarioViewModel model)
         {
-            try
+            try 
             {
                 if (ModelState.IsValid)
                 {
+                    Funcionario funcionario = mapper.Map<Funcionario>(model);
+
+                    if (funcionario.Id > 0)
+                    {
+                        Funcionario funcionarioOriginal = ctx.FuncionarioRepository.GetById(funcionario.Id);
+                        funcionario.Senha = funcionarioOriginal.Senha;
+                        ctx.FuncionarioRepository.Update(funcionario);
+                    }
+                    else
+                    {
+                        using (var sha256 = new SHA256Managed())
+                        {
+                            var varhashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(string.Format("@lterarsenha{0}", funcionario.IdEmpresa)));
+                            var hash = BitConverter.ToString(varhashedBytes).Replace("-", "").ToLower();
+                            funcionario.Senha = hash;
+                        }
+                        Funcionario funcionarioOriginal = ctx.FuncionarioRepository.GetById(funcionario.Id);
+                        ctx.FuncionarioRepository.Add(funcionario);
+                    }
+
+                    ctx.Commit();
+
                     return new JsonResult()
                     {
-                        Data = new { sucesso = true, mensagem = "Salvo com sucesso!" },
+                        Data = new { sucesso = true, result = funcionario, mensagem = "Salvo com sucesso!" },
                         JsonRequestBehavior = JsonRequestBehavior.AllowGet
                     };
-                      
+
                 }
                 else
                 {
@@ -95,13 +135,14 @@ namespace Odonto.Mvc.Controllers
             }
             catch (Exception ex)
             {
+                ctx.Dispose();
                 return new JsonResult()
                 {
                     Data = new { sucesso = false, mensagem = ex.Message },
                     JsonRequestBehavior = JsonRequestBehavior.AllowGet
                 };
             }
-            
+
         }
 
     }

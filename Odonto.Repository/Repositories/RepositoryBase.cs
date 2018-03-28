@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Odonto.Repository.Repositories
 {
-    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : OdontoContext, IRepositoryBase<T> where T : class
     {
         internal DbSet<T> dbSet;
 
@@ -77,7 +77,7 @@ namespace Odonto.Repository.Repositories
 
         public virtual void Update(T obj)
         {
-            dbSet.Attach(obj);
+            this.Entry<T>(obj).State = EntityState.Modified;
         }
     }
 }

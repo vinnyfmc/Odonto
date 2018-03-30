@@ -1,7 +1,7 @@
 ﻿function OnSubmitSuccess(data) {
     if (data.sucesso) {
         swal(
-            'Fornecedor',
+            'Paciente',
             data.mensagem,
             'success'
         )

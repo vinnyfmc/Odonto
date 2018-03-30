@@ -11,11 +11,11 @@ namespace Odonto.Mvc
             #region "Bundles do sistema"
             
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.unobtrusive-ajax.js"));
+                        "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        //"~/Scripts/jquery.validate*",
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/jquery.unobtrusive-ajax.js",
                         "~/Scripts/jquery.validate.unobtrusive.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -43,6 +43,11 @@ namespace Odonto.Mvc
             bundles.Add(new ScriptBundle("~/bundles/sweetAlert").Include(
                "~/Includes/sweetalert/sweetalert2.all.js"));
 
+            #endregion
+
+            #region "Bundles Login"
+            bundles.Add(new ScriptBundle("~/bundles/LoginIndex").Include(
+                        "~/Scripts/_Odonto/Login/Index.js"));
             #endregion
 
             #region "Bundles Empresa"

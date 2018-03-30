@@ -11,20 +11,21 @@ namespace Odonto.Mvc.Models
         [Required(ErrorMessage = "Nome do paciente é obrigatório.")]
         public string Nome { get; set; }
 
-        [MaxLength(11, ErrorMessage = "Máximo de 11 caratéres!")]
-        [MinLength(11, ErrorMessage = "Mínimo de 11 caratéres!")]
+        [MaxLength(11, ErrorMessage = "CPF - Máximo de 11 caratéres!")]
+        [MinLength(11, ErrorMessage = "CPF - Mínimo de 11 caratéres!")]
         public string CPF { get; set; }
 
         public string RG { get; set; }
 
-        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido.")]
+        [DataType(DataType.Date, ErrorMessage = "Data de nascimento em formato inválido.")]
         [Required(ErrorMessage = "Data de nascimento do paciente é obrigatório.")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
         public string CEP { get; set; }
 
-        [MaxLength(2, ErrorMessage = "Máximo de 2 caratéres!")]
-        [MinLength(2, ErrorMessage = "Mínimo de 2 caratéres!")]
+        [MaxLength(2, ErrorMessage = "UF - Máximo de 2 caratéres!")]
+        [MinLength(2, ErrorMessage = "UF - Mínimo de 2 caratéres!")]
         public string UF { get; set; }
 
         public string Cidade { get; set; }
@@ -50,10 +51,10 @@ namespace Odonto.Mvc.Models
         [Required(ErrorMessage = "Status é obrigatório.")]
         public int Status { get; set; }
 
-        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido.")]
+        [DataType(DataType.Date, ErrorMessage = "Data de Cadastro em formato inválido.")]
         public DateTime DataCadastro { get; set; }
 
-        [Required(ErrorMessage = "Empresa do funcionário é obrigatório.")]
+        [Required(ErrorMessage = "Empresa do paciente é obrigatório.")]
         public long IdEmpresa { get; set; }
     }
 }

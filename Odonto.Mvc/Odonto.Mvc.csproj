@@ -154,7 +154,9 @@
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Models\UsuarioPrincipal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -406,9 +408,12 @@
     <Content Include="Scripts\_Odonto\Empresa\Lista.js" />
     <Content Include="Scripts\_Odonto\Funcionario\Index.js" />
     <Content Include="Scripts\_Odonto\Funcionario\Lista.js" />
+    <Content Include="Scripts\_Odonto\Login\Index.js" />
     <Content Include="Scripts\_Odonto\Paciente\Index.js" />
     <Content Include="Scripts\_Odonto\Paciente\Lista.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -419,8 +424,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Empresa\Lista.cshtml" />
     <Content Include="Views\Empresa\Index.cshtml" />
@@ -436,6 +439,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Paciente\Lista.cshtml" />
+    <Content Include="Views\Paciente\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,108 @@
+﻿@model Odonto.Mvc.Models.PacienteViewModel
+@{
+    ViewBag.Title = "Cadastro de Paciente";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+
+@using (Ajax.BeginForm("Salvar", "Paciente", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSubmitSuccess", OnBegin = "OnSubmitBegin" }, new { @id = "frmSalvar" }))
+{
+    @Html.HiddenFor(m => m.Id, new { Id = "hdfPacienteId" })
+    @Html.HiddenFor(m => m.IdEmpresa, new { Id = "hdfEmpresaId" })
+
+    <div class="row">
+        <div class="col-lg-6 form-group">
+            @Html.Label("*Nome")
+            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = "Digite o nome completo." })
+        </div>
+        <div class="col-lg-3">
+            @Html.Label("CPF")
+            @Html.TextBoxFor(m => m.CPF, new { @type = "number", @class = "form-control", placeholder = "Sem pontuação." })
+        </div>
+        <div class="col-lg-3">
+            @Html.Label("RG")
+            @Html.TextBoxFor(m => m.RG, new { @class = "form-control", placeholder = "Digite o RG." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 form-group">
+            @Html.Label("E-Mail")
+            @Html.TextBoxFor(m => m.Email, new { @type = "email", @class = "form-control", placeholder = "Digite o E-mail ex: exemplo@exemplo.com" })
+        </div>
+        <div class="col-lg-6 form-group">
+            @Html.Label("Profissão")
+            @Html.TextBoxFor(m => m.Profissao, new { @class = "form-control", placeholder = "Digite a profissão." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 form-group">
+            @Html.Label("Data Nascimento")
+            @Html.TextBoxFor(m => m.DataNascimento, new { @Value = Model.DataNascimento.ToString("yyyy-MM-dd"), @type = "date", @class = "form-control" })
+        </div>
+        <div class="col-lg-4 form-group">
+            @Html.Label("Telefone")
+            @Html.TextBoxFor(m => m.Telefone, new { @class = "form-control", placeholder = "ex: (99) 99999-9999" })
+        </div>
+        <div class="col-lg-4 form-group">
+            @Html.Label("Celular")
+            @Html.TextBoxFor(m => m.Celular, new { @class = "form-control", placeholder = "ex: (99) 99999-9999" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 form-group">
+            @Html.Label("CEP")
+            @Html.TextBoxFor(m => m.CEP, new { @type = "number", @class = "form-control", placeholder = "ex: 99999999" })
+        </div>
+        <div class="col-lg-2 form-group">
+            @Html.Label("UF")
+            @Html.TextBoxFor(m => m.UF, new { @class = "form-control", placeholder = "ex: XX" })
+        </div>
+        <div class="col-lg-4 form-group">
+            @Html.Label("Cidade")
+            @Html.TextBoxFor(m => m.Cidade, new { @class = "form-control", placeholder = "Digite a cidade da residência." })
+        </div>
+        <div class="col-lg-4 form-group">
+            @Html.Label("Bairro")
+            @Html.TextBoxFor(m => m.Bairro, new { @class = "form-control", placeholder = "Digite o bairro da residência." })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 form-group">
+            @Html.Label("Número")
+            @Html.TextBoxFor(m => m.Numero, new { @class = "form-control", placeholder = "Digite o número da residência." })
+        </div>
+        <div class="col-lg-9 form-group">
+            @Html.Label("Complemento")
+            @Html.TextBoxFor(m => m.Complemento, new { @class = "form-control", placeholder = "Digite o complemento da residência." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3">
+            @Html.Label("Status")
+            @Html.DropDownListFor(m => m.Status,
+                                EnumHelper.GetSelectList(typeof(Odonto.Mvc.Models.Enums.Enums.Ativo)),
+                                    "Selecione...",
+                                    new { @class = "form-control" })
+        </div>
+        <div class="col-lg-9 form-group">
+            @Html.Label("Observações")
+            @Html.TextBoxFor(m => m.Observacao, new { @class = "form-control", placeholder = "Digite as observações importantes sobre o paciente." })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-lg-offset-10">
+            <button type="button" id="btnSalvar" class=" form-control btn-lg btn-primary fa fa-save" style="margin-top:25px"> Salvar</button>
+        </div>
+    </div>
+
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/PacienteIndex")
+}

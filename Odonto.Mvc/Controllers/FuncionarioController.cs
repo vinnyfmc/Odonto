@@ -19,9 +19,18 @@ namespace Odonto.Mvc.Controllers
         private UnitOfWork unit = new UnitOfWork();
         private readonly IMapper mapper;
 
+        private Funcionario usuarioLogado = new Funcionario();
+
         public FuncionarioController()
         {
             mapper = AutoMapperConfig.Mapper;
+
+            UsuarioPrincipal uPrincipal =  System.Web.HttpContext.Current.User as UsuarioPrincipal;
+            if (uPrincipal != null)
+                usuarioLogado = uPrincipal.Funcionario;
+
+            if (usuarioLogado == null)
+                throw new Exception("Usuário não encontrado!");
         }
 
         // GET: Funcionario
@@ -36,7 +45,7 @@ namespace Odonto.Mvc.Controllers
                 }
                 else
                 {
-                    model.IdEmpresa = 1;
+                    model.IdEmpresa = usuarioLogado.IdEmpresa;
                 }
             }
             catch (Exception ex)
@@ -106,7 +115,6 @@ namespace Odonto.Mvc.Controllers
                             var hash = BitConverter.ToString(varhashedBytes).Replace("-", "").ToLower();
                             funcionario.Senha = hash;
                         }
-                        Funcionario funcionarioOriginal = unit.FuncionarioRepository.GetById(funcionario.Id);
                         unit.FuncionarioRepository.Add(funcionario);
                     }
 
@@ -149,6 +157,7 @@ namespace Odonto.Mvc.Controllers
             }
 
         }
-
+        
+       
     }
 }

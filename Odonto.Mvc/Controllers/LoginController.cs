@@ -29,6 +29,14 @@ namespace Odonto.Mvc.Controllers
         // GET: Login
         public ActionResult Index(string returnUrl)
         {
+            //using (var sha256 = new SHA256Managed())
+            //{
+            //    var senhaNova = "andrezza_albanese@hotmail.com";
+            //    senhaNova = senhaNova.Remove(senhaNova.IndexOf("@"));
+            //    var varhashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(senhaNova));
+            //    var hash = BitConverter.ToString(varhashedBytes).Replace("-", "").ToLower();
+            //}
+
             ViewBag.ReturnUrl = String.IsNullOrEmpty(returnUrl) ? Url.Action("Index", "Home") : returnUrl;
             return View();
         }

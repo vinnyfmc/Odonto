@@ -15,6 +15,7 @@ namespace Odonto.Repository.EntityConfig
             Property(p => p.CRO).HasMaxLength(100);
             Property(p => p.ResponsavelTecnico).IsRequired();
             Property(p => p.Status).IsRequired();
+            Property(p => p.PrimeiroAcesso).IsRequired();
 
             HasRequired(p => p.Empresa).WithMany().HasForeignKey(p => p.IdEmpresa);
         }

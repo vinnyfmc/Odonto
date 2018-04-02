@@ -10,6 +10,7 @@
         public string CRO { get; set; }
         public bool ResponsavelTecnico { get; set; }
         public int Status { get; set; }
+        public bool PrimeiroAcesso { get; set; }
 
         public long IdEmpresa { get; set; }
         public virtual Empresa Empresa { get; set; }

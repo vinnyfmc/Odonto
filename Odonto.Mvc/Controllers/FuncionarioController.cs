@@ -111,10 +111,13 @@ namespace Odonto.Mvc.Controllers
                     {
                         using (var sha256 = new SHA256Managed())
                         {
-                            var varhashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(string.Format("@lterarsenha{0}", funcionario.IdEmpresa)));
+                            var senhaNova = funcionario.Email;
+                            senhaNova = senhaNova.Remove(senhaNova.IndexOf("@"));
+                            var varhashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(senhaNova));
                             var hash = BitConverter.ToString(varhashedBytes).Replace("-", "").ToLower();
                             funcionario.Senha = hash;
                         }
+                        funcionario.PrimeiroAcesso = true;
                         unit.FuncionarioRepository.Add(funcionario);
                     }
 

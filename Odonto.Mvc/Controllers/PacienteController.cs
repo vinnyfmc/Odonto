@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace Odonto.Mvc.Controllers
 {
+    [Authorize]
     public class PacienteController : Controller
     {
         private UnitOfWork unit = new UnitOfWork();

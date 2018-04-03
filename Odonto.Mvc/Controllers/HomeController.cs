@@ -13,6 +13,7 @@ using System.Web.Security;
 
 namespace Odonto.Mvc.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private UnitOfWork unit = new UnitOfWork();

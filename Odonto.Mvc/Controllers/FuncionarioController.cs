@@ -14,6 +14,7 @@ using System.Web.Mvc;
 
 namespace Odonto.Mvc.Controllers
 {
+    [Authorize]
     public class FuncionarioController : Controller
     {
         private UnitOfWork unit = new UnitOfWork();

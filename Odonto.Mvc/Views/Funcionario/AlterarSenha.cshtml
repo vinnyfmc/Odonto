@@ -1,0 +1,33 @@
+﻿@model Odonto.Mvc.Models.FuncionarioViewModel
+@{
+    ViewBag.Title = "Alterar Senha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+
+@using (Ajax.BeginForm("AlterarSenha", "Funcionario", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSubmitSuccess_AlterarSenha", OnBegin = "OnSubmitBegin" }, new { @id = "frmSalvar", @class = "frmSalvar" }))
+{
+    <input type="hidden" id="urlRedirect" value="@Url.Action("Index", "Home" )" />
+    <div class="row">
+        <div class="col-lg-6 form-group">
+            @Html.Label("Senha")
+            @Html.TextBoxFor(m => m.Senha, new { @class = "form-control", placeholder = "Digite sua senha." })
+        </div>
+        <div class="col-lg-6 form-group">
+            @Html.Label("Confirmação de Senha")
+            @Html.TextBoxFor(m => m.SenhaConfirm, new { @class = "form-control", placeholder = "Digite a confirmação da senha." })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-lg-offset-10">
+            <button type="button" id="btnSubmit" class="btnSubmit form-control btn- btn-primary" style="margin-top:25px"> Alterar Senha</button>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/FuncionarioIndex")
+}

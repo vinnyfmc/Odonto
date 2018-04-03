@@ -77,8 +77,7 @@ namespace Odonto.Mvc.Controllers
             RemoverCookie();
             return RedirectToAction("Index", "Login");
         }
-
-
+        
         public void RemoverCookie()
         {
             System.Web.HttpContext.Current.Session.Abandon();

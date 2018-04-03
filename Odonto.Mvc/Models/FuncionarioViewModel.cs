@@ -23,6 +23,8 @@ namespace Odonto.Mvc.Models
 
         public string Senha { get; set; }
 
+        public string SenhaConfirm { get; set; }
+
         [MaxLength(100, ErrorMessage = "CRO - Máximo de 100 caratéres!")]
         public string CRO { get; set; }
 

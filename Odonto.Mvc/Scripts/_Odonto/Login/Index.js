@@ -7,6 +7,7 @@ function onBegin() {
     $("#txEmail").val("");
     $("#txSenha").val("");
     $('#btnLogar').attr('disabled');
+    swal.showLoading();
 }
 
 function onSuccess(data) {
@@ -19,5 +20,6 @@ function onSuccess(data) {
             data.Mensagem,
             'error'
         )
+        swal.hideLoading();
     }
 }

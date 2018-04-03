@@ -17,15 +17,26 @@ namespace Odonto.Mvc.Controllers
     {
         private UnitOfWork unit = new UnitOfWork();
         private readonly IMapper mapper;
+        private Funcionario usuarioLogado = new Funcionario();
 
         public HomeController()
         {
             mapper = AutoMapperConfig.Mapper;
+
+            UsuarioPrincipal uPrincipal = System.Web.HttpContext.Current.User as UsuarioPrincipal;
+            if (uPrincipal != null)
+                usuarioLogado = uPrincipal.Funcionario;
+
+            if (usuarioLogado == null)
+                throw new Exception("Usuário não encontrado!");
         }
 
         public ActionResult Index()
         {
-            return View();
+            if (usuarioLogado.PrimeiroAcesso)
+                return RedirectToAction("frmAlterarSenha", "Funcionario");
+            else
+                return View();
         }
         
         public ActionResult About()

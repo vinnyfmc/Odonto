@@ -442,6 +442,7 @@
     <Content Include="Views\Paciente\Lista.cshtml" />
     <Content Include="Views\Paciente\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Funcionario\AlterarSenha.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

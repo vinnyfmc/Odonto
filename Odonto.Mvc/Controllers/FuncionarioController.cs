@@ -25,7 +25,7 @@ namespace Odonto.Mvc.Controllers
         {
             mapper = AutoMapperConfig.Mapper;
 
-            UsuarioPrincipal uPrincipal =  System.Web.HttpContext.Current.User as UsuarioPrincipal;
+            UsuarioPrincipal uPrincipal = System.Web.HttpContext.Current.User as UsuarioPrincipal;
             if (uPrincipal != null)
                 usuarioLogado = uPrincipal.Funcionario;
 
@@ -56,11 +56,18 @@ namespace Odonto.Mvc.Controllers
             return View(model);
         }
 
+        public ActionResult MeuCadastro()
+        {
+            FuncionarioViewModel funcionarioViewModel = mapper.Map<FuncionarioViewModel>(usuarioLogado);
+
+            return RedirectToAction("Index", funcionarioViewModel);
+        }
+
         public ActionResult Lista()
         {
             return View("Lista", new FuncionarioViewModel { Id = 0 });
         }
-
+        
         [HttpGet]
         public ActionResult GetAll()
         {
@@ -90,7 +97,7 @@ namespace Odonto.Mvc.Controllers
         [HttpPost]
         public JsonResult Salvar(FuncionarioViewModel model)
         {
-            try 
+            try
             {
                 if (ModelState.IsValid)
                 {
@@ -160,7 +167,57 @@ namespace Odonto.Mvc.Controllers
             }
 
         }
-        
-       
+
+        public ActionResult frmAlterarSenha()
+        {
+            return View("AlterarSenha", new FuncionarioViewModel());
+        }
+
+        public JsonResult AlterarSenha(FuncionarioViewModel model)
+        {
+            try
+            {
+                if((!string.IsNullOrEmpty(model.Senha)) && (model.Senha.Equals(model.SenhaConfirm)))
+                {
+
+                    Funcionario funcionario = unit.FuncionarioRepository.GetById(usuarioLogado.Id);
+                    using (var sha256 = new SHA256Managed())
+                    {
+                        var senhaNova = model.Senha;
+                        var varhashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(senhaNova));
+                        var hash = BitConverter.ToString(varhashedBytes).Replace("-", "").ToLower();
+                        funcionario.Senha = hash;
+                    }
+
+                    funcionario.PrimeiroAcesso = false;
+                    unit.FuncionarioRepository.Update(funcionario);
+                    unit.Commit();
+
+                    return new JsonResult()
+                    {
+                        Data = new { sucesso = true, mensagem = "Senha alterada com sucesso!" },
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                    };
+                }
+                else
+                {
+                    return new JsonResult()
+                    {
+                        Data = new { sucesso = false, mensagem = "Senha não confere com a confirmação ou está vazia!" },
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                unit.Dispose();
+                return new JsonResult()
+                {
+                    Data = new { sucesso = false, mensagem = ex.Message },
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+        }
+
     }
 }

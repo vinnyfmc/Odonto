@@ -47,7 +47,8 @@ namespace Odonto.Mvc
 
             #region "Bundles Login"
             bundles.Add(new ScriptBundle("~/bundles/LoginIndex").Include(
-                        "~/Scripts/_Odonto/Login/Index.js"));
+                        "~/Scripts/_Odonto/Login/Index.js",
+                        "~/Scripts/jquery.cookie.js"));
             #endregion
 
             #region "Bundles Empresa"
